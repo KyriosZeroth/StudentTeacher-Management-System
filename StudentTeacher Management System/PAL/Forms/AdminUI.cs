@@ -33,7 +33,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
 
         private void About_Ad_Click(object sender, EventArgs e)
         {
-
+            //wala rani
         }
 
         private void button1_Click(object sender, EventArgs e)
