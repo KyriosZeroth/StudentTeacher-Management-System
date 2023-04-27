@@ -50,12 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PAL\Forms\AnnForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="PAL\Forms\AnnForm.Designer.cs">
-      <DependentUpon>AnnForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="PAL\Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,9 +66,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PAL\Forms\AdminUI.resx">
       <DependentUpon>AdminUI.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PAL\Forms\AnnForm.resx">
-      <DependentUpon>AnnForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PAL\Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
