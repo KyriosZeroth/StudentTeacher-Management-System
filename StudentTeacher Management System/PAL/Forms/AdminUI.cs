@@ -16,7 +16,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
         string AconnectionString = @"Server=localhost;Database=studmanagment;Uid=root;Pwd = karmakun_2002";
         int AdminAc = 1110000;
        
-
+        //comment change ni 
 
         public AdminForm()
         {
