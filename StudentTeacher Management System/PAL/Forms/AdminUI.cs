@@ -17,7 +17,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
         int AdminAc = 1110000;
        
         //comment change ni 
-
+        //comment change 2
         public AdminForm()
         {
             InitializeComponent();
