@@ -83,7 +83,11 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.AAsave = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.annForm1 = new StudentTeacher_Management_System.PAL.Forms.AnnForm();
+            this.AnPanel = new System.Windows.Forms.Panel();
+            this.delbttn = new System.Windows.Forms.Button();
+            this.AnnPanel1 = new System.Windows.Forms.Panel();
+            this.postbttn = new System.Windows.Forms.Button();
+            this.Postrtb = new System.Windows.Forms.RichTextBox();
             this.Tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ATview)).BeginInit();
             this.panelUui.SuspendLayout();
@@ -96,6 +100,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ASview)).BeginInit();
             this.Apanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AAview)).BeginInit();
+            this.AnPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Tpanel
@@ -687,21 +692,62 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.label6.Text = "Admin\'s Username";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // annForm1
+            // AnPanel
             // 
-            this.annForm1.Location = new System.Drawing.Point(145, 126);
-            this.annForm1.Name = "annForm1";
-            this.annForm1.Size = new System.Drawing.Size(1043, 627);
-            this.annForm1.TabIndex = 30;
+            this.AnPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.AnPanel.Controls.Add(this.delbttn);
+            this.AnPanel.Controls.Add(this.AnnPanel1);
+            this.AnPanel.Controls.Add(this.postbttn);
+            this.AnPanel.Controls.Add(this.Postrtb);
+            this.AnPanel.Location = new System.Drawing.Point(145, 111);
+            this.AnPanel.Name = "AnPanel";
+            this.AnPanel.Size = new System.Drawing.Size(1039, 642);
+            this.AnPanel.TabIndex = 30;
+            // 
+            // delbttn
+            // 
+            this.delbttn.Location = new System.Drawing.Point(844, 565);
+            this.delbttn.Name = "delbttn";
+            this.delbttn.Size = new System.Drawing.Size(171, 40);
+            this.delbttn.TabIndex = 9;
+            this.delbttn.Text = "DELETE";
+            this.delbttn.UseVisualStyleBackColor = true;
+            this.delbttn.Click += new System.EventHandler(this.delbttn_Click);
+            // 
+            // AnnPanel1
+            // 
+            this.AnnPanel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AnnPanel1.Location = new System.Drawing.Point(12, 140);
+            this.AnnPanel1.Name = "AnnPanel1";
+            this.AnnPanel1.Size = new System.Drawing.Size(1003, 387);
+            this.AnnPanel1.TabIndex = 8;
+            // 
+            // postbttn
+            // 
+            this.postbttn.Location = new System.Drawing.Point(643, 565);
+            this.postbttn.Name = "postbttn";
+            this.postbttn.Size = new System.Drawing.Size(171, 40);
+            this.postbttn.TabIndex = 7;
+            this.postbttn.Text = "POST";
+            this.postbttn.UseVisualStyleBackColor = true;
+            this.postbttn.Click += new System.EventHandler(this.postbttn_Click);
+            // 
+            // Postrtb
+            // 
+            this.Postrtb.Location = new System.Drawing.Point(12, 38);
+            this.Postrtb.Name = "Postrtb";
+            this.Postrtb.Size = new System.Drawing.Size(1000, 74);
+            this.Postrtb.TabIndex = 6;
+            this.Postrtb.Text = "";
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1196, 765);
+            this.ClientSize = new System.Drawing.Size(1201, 765);
+            this.Controls.Add(this.AnPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.annForm1);
             this.Controls.Add(this.Tpanel);
             this.Controls.Add(this.SPanel);
             this.Controls.Add(this.Apanel);
@@ -727,6 +773,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.Apanel.ResumeLayout(false);
             this.Apanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AAview)).EndInit();
+            this.AnPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -787,6 +834,10 @@ namespace StudentTeacher_Management_System.PAL.Forms
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel Tpanel;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private AnnForm annForm1;
+        private System.Windows.Forms.Panel AnPanel;
+        private System.Windows.Forms.Button delbttn;
+        private System.Windows.Forms.Panel AnnPanel1;
+        private System.Windows.Forms.Button postbttn;
+        private System.Windows.Forms.RichTextBox Postrtb;
     }
 }
