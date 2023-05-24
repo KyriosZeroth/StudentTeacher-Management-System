@@ -29,6 +29,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.Tpanel = new System.Windows.Forms.Panel();
             this.ATsearch = new System.Windows.Forms.Button();
             this.tsearch = new System.Windows.Forms.TextBox();
@@ -57,7 +58,6 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.AAbtn = new System.Windows.Forms.Button();
             this.APbtn = new System.Windows.Forms.Button();
             this.AAnbtn = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.AMAbtn = new System.Windows.Forms.Button();
             this.ASMAbtn = new System.Windows.Forms.Button();
@@ -88,19 +88,20 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.AnnPanel1 = new System.Windows.Forms.Panel();
             this.postbttn = new System.Windows.Forms.Button();
             this.Postrtb = new System.Windows.Forms.RichTextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ATview)).BeginInit();
             this.panelUui.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             this.SPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ASview)).BeginInit();
             this.Apanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AAview)).BeginInit();
             this.AnPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // Tpanel
@@ -356,21 +357,23 @@ namespace StudentTeacher_Management_System.PAL.Forms
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.AAbtn);
             this.panel1.Controls.Add(this.APbtn);
             this.panel1.Controls.Add(this.AAnbtn);
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(-1, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1201, 97);
             this.panel1.TabIndex = 0;
+            this.panel1.TabStop = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Goldenrod;
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(146, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(485, 34);
@@ -421,15 +424,6 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.AAnbtn.Text = "Announcement";
             this.AAnbtn.UseVisualStyleBackColor = false;
             this.AAnbtn.Click += new System.EventHandler(this.AAnbtn_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Goldenrod;
-            this.pictureBox2.Location = new System.Drawing.Point(13, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(117, 84);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
             // 
             // panel2
             // 
@@ -694,7 +688,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
             // 
             // AnPanel
             // 
-            this.AnPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.AnPanel.BackColor = System.Drawing.Color.DimGray;
             this.AnPanel.Controls.Add(this.delbttn);
             this.AnPanel.Controls.Add(this.AnnPanel1);
             this.AnPanel.Controls.Add(this.postbttn);
@@ -740,6 +734,16 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.Postrtb.TabIndex = 6;
             this.Postrtb.Text = "";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(13, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(109, 94);
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -747,10 +751,10 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.ClientSize = new System.Drawing.Size(1201, 765);
             this.Controls.Add(this.AnPanel);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Tpanel);
             this.Controls.Add(this.SPanel);
             this.Controls.Add(this.Apanel);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AdminForm";
@@ -765,7 +769,6 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.SPanel.ResumeLayout(false);
             this.SPanel.PerformLayout();
@@ -774,6 +777,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
             this.Apanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AAview)).EndInit();
             this.AnPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -797,7 +801,6 @@ namespace StudentTeacher_Management_System.PAL.Forms
         private System.Windows.Forms.Button AAbtn;
         private System.Windows.Forms.Button APbtn;
         private System.Windows.Forms.Button AAnbtn;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button AMAbtn;
         private System.Windows.Forms.Button ASMAbtn;
@@ -839,5 +842,6 @@ namespace StudentTeacher_Management_System.PAL.Forms
         private System.Windows.Forms.Panel AnnPanel1;
         private System.Windows.Forms.Button postbttn;
         private System.Windows.Forms.RichTextBox Postrtb;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

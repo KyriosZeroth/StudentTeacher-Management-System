@@ -44,10 +44,19 @@ namespace StudentTeacher_Management_System.PAL.Forms
                 msda.Fill(dt);
                 if (dt.Rows[0][0].ToString() == "1")
                 {
+
+                    string loggedInUser = Username_txt.Text;
+                    MessageBox.Show(loggedInUser);
+                    Form2 form2 = new Form2();
+                    form2.loggedInUser = Username_txt.Text;
+                    form2.GetID(loggedInUser);
+                    Form5 form = new Form5();
+                    form.loggedInUser = Username_txt.Text;
+                    form.GetID(loggedInUser);
                     AdminForm Obj = new AdminForm();
+                    Obj.loggedInUser = Username_txt.Text;
                     Obj.Show();
                     this.Hide();
-                    con.Close();
 
                 }
                 else
@@ -68,10 +77,18 @@ namespace StudentTeacher_Management_System.PAL.Forms
                 msda.Fill(dt);
                 if (dt.Rows[0][0].ToString() == "1")
                 {
+                    string loggedInUser = Username_txt.Text;
+                    MessageBox.Show(loggedInUser);
+                    Form2 form2 = new Form2();
+                    form2.loggedInUser = Username_txt.Text;
+                    form2.GetID(loggedInUser);
+                    Form5 form = new Form5();
+                    form.loggedInUser = Username_txt.Text;
+                    form.GetID(loggedInUser);
                     AdminForm Obj = new AdminForm();
+                    Obj.loggedInUser = Username_txt.Text;
                     Obj.Show();
                     this.Hide();
-                    con.Close();
 
                 }
                 else
@@ -101,16 +118,15 @@ namespace StudentTeacher_Management_System.PAL.Forms
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Password_txt.UseSystemPasswordChar = false;
+            Password_txt.UseSystemPasswordChar = true;
             pictureBox2.Hide();
-            pictureBox3.Show();
+            pictureBox3.Show(); 
         }
 
         private void pictureBox3_Click_1(object sender, EventArgs e)
         {
 
-
-            Password_txt.UseSystemPasswordChar = true;
+            Password_txt.UseSystemPasswordChar = false;
             pictureBox2.Show();
             pictureBox3.Hide();
         }

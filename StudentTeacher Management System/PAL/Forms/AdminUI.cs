@@ -8,6 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Drawing.Imaging;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
+using System.Runtime.InteropServices;
+using System.IO;
+
+
+
 
 namespace StudentTeacher_Management_System.PAL.Forms
 {
@@ -19,7 +27,10 @@ namespace StudentTeacher_Management_System.PAL.Forms
         int TeacherAc = 1210000;
         string AconnectionString = @"Server=localhost;Database=studmanagment;Uid=root;Pwd = karmakun_2002";
         int AdminAc = 1110000;
-       
+        string AnconnectionString = @"Server=localhost;Database=studmanagment;Uid=root;Pwd = karmakun_2002";
+        int AnID = 0;
+
+        public string loggedInUser;
 
         public AdminForm()
         {
@@ -56,6 +67,51 @@ namespace StudentTeacher_Management_System.PAL.Forms
             Slear();
             LoadAnnouncements();
 
+            BitmapImage originalImage = new BitmapImage(new Uri("D:\\Downloads\\logo.jpg"));
+
+            // Create a BitmapSource from the BitmapImage
+            BitmapSource bitmapSource = BitmapFrame.Create(originalImage.UriSource);
+
+            // Convert the BitmapSource to Bitmap
+            System.Drawing.Bitmap bitmap;
+            using (MemoryStream outStream = new MemoryStream())
+            {
+                BitmapEncoder enc = new BmpBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(bitmapSource));
+                enc.Save(outStream);
+                bitmap = new System.Drawing.Bitmap(outStream);
+            }
+
+            // Set the PictureBox image to the converted Bitmap
+            pictureBox2.Image = bitmap;
+
+            // Set the opacity of the PictureBox control
+            pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            pictureBox2.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            // Load the image file
+            var bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.UriSource = new Uri(@"D:\Downloads\logo.png");
+            bitmapImage.EndInit();
+
+            // Use a PngBitmapDecoder to load the image with transparency
+            var pngDecoder = new PngBitmapDecoder(bitmapImage.UriSource, BitmapCreateOptions.PreservePixelFormat, BitmapCacheOption.Default);
+            var transparentImage = pngDecoder.Frames[0];
+
+            // Convert the transparent image to Bitmap
+            System.Drawing.Bitmap transparentBitmap;
+            using (MemoryStream outStream = new MemoryStream())
+            {
+                BitmapEncoder enc = new BmpBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(transparentImage));
+                enc.Save(outStream);
+                transparentBitmap = new System.Drawing.Bitmap(outStream);
+            }
+
+            // Assign the transparent image to your picture box
+            pictureBox2.Image = transparentBitmap;
         }
 
         private void ATMA_Click(object sender, EventArgs e) //For Teachers Account Management
@@ -110,6 +166,12 @@ namespace StudentTeacher_Management_System.PAL.Forms
             Tpanel.Visible = false;
             Apanel.Visible = false;
             AnPanel.Visible = false;
+
+            Form5 form5 = new Form5();
+            form5.GetID(loggedInUser);
+            form5.loggedInUser = loggedInUser;
+            this.Hide();
+            form5.Show();
         }
 
         private void APbtn_Click(object sender, EventArgs e)
@@ -119,6 +181,11 @@ namespace StudentTeacher_Management_System.PAL.Forms
             Apanel.Visible = false;
             AnPanel.Visible = false;
 
+            Form2 form2 = new Form2();
+            form2.GetID(loggedInUser);
+            form2.loggedInUser = loggedInUser;
+            this.Hide();
+            form2.Show();
         }
 
         private string GetStudNameFromDB()
@@ -367,6 +434,12 @@ namespace StudentTeacher_Management_System.PAL.Forms
                 amysqlCmd.Parameters.AddWithValue("_pass", apass.Text.Trim());
                 string currentAdName = GetAdNameFromDB(); // Replace with your own method to retrieve the current value of "_name"
                 amysqlCmd.Parameters.AddWithValue("_name", currentAdName);
+                amysqlCmd.Parameters.AddWithValue("_adage", 2);
+                amysqlCmd.Parameters.AddWithValue("_adgender", "");
+                amysqlCmd.Parameters.AddWithValue("_adbirthdate", 2);
+                amysqlCmd.Parameters.AddWithValue("_adaddress", "");
+                amysqlCmd.Parameters.AddWithValue("_ademail", "");
+                amysqlCmd.Parameters.AddWithValue("_adcnumber", 123);
                 amysqlCmd.ExecuteNonQuery();
                 MessageBox.Show("Saved Successfully");
                 AGridFill();
@@ -447,8 +520,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
         }
 
 
-        string AnconnectionString = @"Server=localhost;Database=studmanagment;Uid=root;Pwd = karmakun_2002";
-        int AnID = 0;
+        
         List<string> announcementsList = new List<string>();
 
         private void postbttn_Click(object sender, EventArgs e)
@@ -504,8 +576,8 @@ namespace StudentTeacher_Management_System.PAL.Forms
                     lbl.Top = top;
                     lbl.Left = 0;
                     lbl.Width = AnnPanel1.Width;
-                    lbl.ForeColor = Color.Black;
-                    lbl.BackColor = Color.LightGray;
+                    lbl.ForeColor = System.Drawing.Color.Black;
+                    lbl.BackColor = System.Drawing.Color.LightGray;
                     lbl.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, ((Byte)(0)));
                     lbl.Text = announcementsList[announcementsList.Count - 1];
                     lbl.Margin = new Padding(0, 10, 0, 0); // Add margin to separate the labels
@@ -529,10 +601,10 @@ namespace StudentTeacher_Management_System.PAL.Forms
         {
             foreach (Label label in AnnPanel1.Controls.OfType<Label>())
             {
-                label.BackColor = Color.LightGray; // Set the background color of all labels to LightGray
+                label.BackColor = System.Drawing.Color.LightGray; // Set the background color of all labels to LightGray
             }
             Label clickedLabel = (Label)sender;
-            clickedLabel.BackColor = Color.WhiteSmoke; // Set the background color of the clicked label to WhiteSmoke
+            clickedLabel.BackColor = System.Drawing.Color.WhiteSmoke; // Set the background color of the clicked label to WhiteSmoke
         }
 
         private void delbttn_Click(object sender, EventArgs e)
@@ -544,7 +616,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
             }
 
             // Get the selected label
-            Label selectedLabel = AnnPanel1.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.BackColor == Color.WhiteSmoke);
+            Label selectedLabel = AnnPanel1.Controls.OfType<Label>().FirstOrDefault(lbl => lbl.BackColor == System.Drawing.Color.WhiteSmoke);
 
             // Check if a label was selected
             if (selectedLabel == null)
@@ -566,7 +638,7 @@ namespace StudentTeacher_Management_System.PAL.Forms
                     anmysqlCon.Open();
                     MySqlCommand anmysqlCmd = new MySqlCommand("AnDelete", anmysqlCon);
                     anmysqlCmd.CommandType = CommandType.StoredProcedure;
-                    anmysqlCmd.Parameters.AddWithValue("_AnID", AnID);
+                    anmysqlCmd.Parameters.AddWithValue("_AnId", AnID);
                     anmysqlCmd.ExecuteNonQuery();
                 }
 
